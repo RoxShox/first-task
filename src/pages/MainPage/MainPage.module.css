@@ -1,0 +1,27 @@
+.yearWrap{
+   text-align: center;
+   margin-top: 50px;
+}
+
+.btnUpdate{
+    width: 200px;
+    height: 40px;
+    color: rgb(47, 0, 255);
+    border: 1px solid rgb(38, 0, 255);
+    background: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .3s;
+    margin-top: 15px;
+}
+.btnUpdate:hover{
+    background: rgb(41, 73, 255);
+    color: white;
+    transition: all .3s;
+}
+
+.year{
+    font-size: 22px;
+    font-weight: 700;
+    color: dodgerblue;
+}

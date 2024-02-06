@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom"
+import MainPage from "./pages/MainPage/MainPage"
+import LoginPage from "./pages/LoginPage/LoginPage"
+import RegistrationPage from "./pages/RegistrationPage/RegistrationPage"
+import NavBar from "./components/NavBar/NavBar"
+import Button from "./components/ui/Button/Button"
+import "normalize.css"
+import styled from "./App.module.css"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<NavBar />
+
+			<Button text="Смена цвета кнопки" className={styled.btnChangeColor} />
+
+			<Routes>
+				<Route path="/" element={<MainPage />} />
+				<Route path="/login" element={<LoginPage />} />
+				<Route path="/registration" element={<RegistrationPage />} />
+			</Routes>
+		</div>
+	)
 }
 
-export default App;
+export default App

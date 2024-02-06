@@ -1,0 +1,15 @@
+.btnWrap{
+    margin: 0 auto;
+}
+
+.btnChangeColor{
+    width: 200px;
+    height: 40px;
+    color: red;
+    border: 1px solid red;
+    background: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+}
