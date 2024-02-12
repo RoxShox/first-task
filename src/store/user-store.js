@@ -5,7 +5,7 @@ import { friends } from "../api/friends"
 import { chats } from "../api/chats"
 class UserStore {
 	user = ""
-	isAuth = true
+	isAuth = false
 	allFriends = friends
 	newsArr = news
 	chats = chats
