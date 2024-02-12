@@ -1,13 +1,17 @@
 import { observer } from "mobx-react-lite"
 import React, { useState } from "react"
 import { userStore } from "../../store/user-store"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Avatar, Paper, Typography } from "@mui/material"
 import styled from "./Home.module.scss"
 
 export const Home = observer(() => {
+	const navigate = useNavigate()
 	const [user] = useState(userStore)
 	const myFriends = user.allFriends.filter((el) => el.isFriend)
+	if (!user.isAuth) {
+		navigate("/login")
+	}
 	return (
 		<Paper
 			sx={{
