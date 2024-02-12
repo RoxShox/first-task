@@ -3,11 +3,12 @@ import React, { useCallback, useState } from "react"
 import { userStore } from "../../store/user-store"
 import FriendItem from "../../components/FriendItem/FriendItem"
 import SearchFriends from "../../components/SearchFriends/SearchFriends"
+import { useNavigate } from "react-router-dom"
 
 export const NewFriends = observer(() => {
 	const [searchValue, setSearchValue] = useState("")
 	const [user] = useState(userStore)
-
+	const navigate = useNavigate()
 	const newFriends = user.allFriends.filter((item) => !item.isFriend)
 	const searchFriends = newFriends.filter((item) =>
 		item.name.toLowerCase().includes(searchValue)
@@ -15,6 +16,9 @@ export const NewFriends = observer(() => {
 	const handleChangeValue = useCallback((searchString) => {
 		setSearchValue(searchString)
 	}, [])
+	if (!user.isAuth) {
+		navigate("/login")
+	}
 	return (
 		<div style={{ flexGrow: 1 }}>
 			<SearchFriends onChange={handleChangeValue} value={searchValue} />
