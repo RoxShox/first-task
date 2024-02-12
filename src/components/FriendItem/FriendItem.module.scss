@@ -1,0 +1,26 @@
+.friendItemWrap {
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	border-radius: 25px !important;
+	align-items: center;
+	margin-bottom: 25px;
+}
+.friendItem {
+	display: flex;
+	column-gap: 10px;
+}
+.itemImg {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+.friendItemBtnsWrap {
+	display: flex;
+	flex-direction: column;
+	row-gap: 15px;
+}
+
+.friendItemMsgBtn {
+	color: white;
+}

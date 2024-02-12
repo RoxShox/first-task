@@ -44,3 +44,7 @@ a {
   text-decoration: none;
 }
 
+
+.main__container{
+  display:flex !important;
+}

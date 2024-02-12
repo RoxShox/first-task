@@ -1,26 +1,45 @@
-import { Route, Routes } from "react-router-dom"
-import MainPage from "./pages/MainPage/MainPage"
-import LoginPage from "./pages/LoginPage/LoginPage"
-import RegistrationPage from "./pages/RegistrationPage/RegistrationPage"
-import NavBar from "./components/NavBar/NavBar"
-import Button from "./components/ui/Button/Button"
 import "normalize.css"
-import styled from "./App.module.css"
+import { Route, Routes } from "react-router-dom"
+import { Login } from "./pages/Login"
+import { Registration } from "./pages/Registration"
+import { News } from "./pages/News"
+import { Home } from "./pages/Home"
+import Sidebar from "./components/Sidebar/Sidebar"
+import { Header } from "./components/Header"
+import { Container } from "@mui/material"
+import { observer } from "mobx-react-lite"
+import { userStore } from "./store/user-store"
+import { useState } from "react"
+import { Friends } from "./pages/Friends"
+import { Person } from "./pages/Person"
+import { NewFriends } from "./pages/NewFriends"
+import { AllChats } from "./pages/AllChats"
+import { Chat } from "./pages/Chat"
+import { NotFound } from "./pages/NotFound"
 
-function App() {
+const App = observer(() => {
+	const [user] = useState(userStore)
+
 	return (
 		<div className="App">
-			<NavBar />
-
-			<Button text="Смена цвета кнопки" className={styled.btnChangeColor} />
-
-			<Routes>
-				<Route path="/" element={<MainPage />} />
-				<Route path="/login" element={<LoginPage />} />
-				<Route path="/registration" element={<RegistrationPage />} />
-			</Routes>
+			<Header />
+			<Container maxWidth="lg" className="main__container">
+				{user.isAuth && <Sidebar />}
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/news" element={<News />} />
+					<Route path="/chats" element={<AllChats />} />
+					<Route path="/chat/:id" element={<Chat />} />
+					<Route path="/friends" element={<Friends />} />
+					<Route path="/newFriends" element={<NewFriends />} />
+					<Route path="/person/:id" element={<Person />} />
+					<Route path="/login" element={<Login />} />
+					<Route path="/register" element={<Registration />} />
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+			</Container>
 		</div>
 	)
-}
+})
 
 export default App

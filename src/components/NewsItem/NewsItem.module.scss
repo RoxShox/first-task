@@ -1,0 +1,35 @@
+.item {
+	display: flex;
+	flex-direction: column;
+	row-gap: 15px;
+	max-width: 510px;
+	margin: 0 auto;
+	padding: 20px;
+}
+.itemImg {
+	max-width: 510px;
+}
+.itemMessage {
+	max-width: 60px;
+	border-radius: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 6px;
+	border: none;
+	padding: 6px 0;
+	cursor: pointer;
+}
+.commentsWrap {
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+	padding: 20px;
+}
+.commentWrap {
+	& span {
+		display: inline-block;
+		font-weight: 700;
+		margin-bottom: 5px;
+	}
+}

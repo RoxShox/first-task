@@ -1,0 +1,16 @@
+.menuLink {
+	display: flex;
+	align-items: center;
+	column-gap: 6px;
+	padding: 0 6px;
+	height: 30px;
+	width: 180px;
+	background: transparent;
+	transition: background 0.3s;
+	border-radius: 4px;
+	&:hover {
+		background: rgba(174, 183, 194, 0.12);
+		transition: all 0.3s;
+		border-radius: 4px;
+	}
+}
