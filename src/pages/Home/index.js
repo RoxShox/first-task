@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { userStore } from "../../store/user-store"
 import { Link, useNavigate } from "react-router-dom"
 import { Avatar, Paper, Typography } from "@mui/material"
@@ -9,9 +9,14 @@ export const Home = observer(() => {
 	const navigate = useNavigate()
 	const [user] = useState(userStore)
 	const myFriends = user.allFriends.filter((el) => el.isFriend)
-	if (!user.isAuth) {
-		navigate("/login")
-	}
+
+	useEffect(() => {
+		if (!user.isAuth) {
+			console.log(123)
+			navigate("/login")
+		}
+	}, [])
+
 	return (
 		<Paper
 			sx={{
@@ -42,7 +47,11 @@ export const Home = observer(() => {
 				</div>
 				<div className={styled.friendsItemsWrap}>
 					{myFriends.slice(0, 4).map((friend) => (
-						<Link className={styled.friendItemWrap} to={`/person/${friend.id}`}>
+						<Link
+							key={friend.id}
+							className={styled.friendItemWrap}
+							to={`/person/${friend.id}`}
+						>
 							<Avatar src={friend.avatar} />
 							<span>{friend.name.split(" ")[0]}</span>
 						</Link>
