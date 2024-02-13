@@ -17,9 +17,7 @@ export const Friends = observer(() => {
 	const handleChangeValue = useCallback((searchString) => {
 		setSearchValue(searchString)
 	}, [])
-	if (!user.isAuth) {
-		navigate("/login")
-	}
+
 	return (
 		<div style={{ flexGrow: 1 }}>
 			<SearchFriends onChange={handleChangeValue} value={searchValue} />

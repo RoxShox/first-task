@@ -7,9 +7,6 @@ import { useNavigate } from "react-router-dom"
 export const News = observer(() => {
 	const [user] = useState(userStore)
 	const navigate = useNavigate()
-	if (!user.isAuth) {
-		navigate("/login")
-	}
 
 	return (
 		<div className={styled.wrap}>
